@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Bechelor Life Expense</string>
+
+    <string-array name="spinner_list">
+        <item>Select Expense Type</item>
+        <item>Electricity Bill</item>
+        <item>Transport Cost</item>
+        <item>Medical Cost</item>
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Others</item>
+    </string-array>
+
+</resources>
