@@ -74,7 +74,7 @@
     <android.support.v7.widget.CardView
         app:cardCornerRadius="10dp"
         android:layout_width="250dp"
-        android:layout_height="250dp">
+        android:layout_height="130dp">
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
@@ -108,4 +108,133 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="10dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="130dp">
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:text="Total\nExpense of\nShuvo"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="#000000"
+                        android:text="BDT"
+                        android:layout_marginRight="5dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/totalExpenseOfShuvoTVId"
+                        android:textColor="#000000"
+                        android:text="Expense"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="10dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="130dp">
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:text="Total\nExpense of\nJewel"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="#000000"
+                        android:text="BDT"
+                        android:layout_marginRight="5dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/totalExpenseOfJewelTVId"
+                        android:textColor="#000000"
+                        android:text="Expense"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="10dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="130dp">
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:text="Total\nExpense of\nDebesh"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="#000000"
+                        android:text="BDT"
+                        android:layout_marginRight="5dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/totalExpenseOfDebeshTVId"
+                        android:textColor="#000000"
+                        android:text="Expense"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 </LinearLayout>

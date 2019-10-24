@@ -36,9 +36,9 @@ public class ExpensesFragment extends Fragment {
     public static MyDBHelper myDBHelper;
     private ExpenseAdapter expenseAdapter;
 
-    private Spinner spinner;
-    private String[] spinnerList;
-    private ArrayAdapter<String> arrayAdapter;
+    private Spinner expenseTypeSpinner,spenderSpinner;
+    private String[] expenseTypeSpinnerList,spenderSpinnerList;
+    private ArrayAdapter<String> expenseTypeSpinnerAdapter,spenderSpinnerAdapter;
 
     private TextView fromDateTV,toDateTV;
     private ImageView fromDateIV,toDateIV;
@@ -73,8 +73,8 @@ public class ExpensesFragment extends Fragment {
 
         populateDataToRecyclerView();
 
-        //show expenses based on spinner selected item
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //show expenses based on expense type spinner selected item
+        expenseTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 0){
@@ -109,6 +109,33 @@ public class ExpensesFragment extends Fragment {
                     setData(cursor);
                 }
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        //show expenses based on spender spinner selected item
+        spenderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0){
+                    getData();
+                    populateDataToRecyclerView();
+                }else if(position == 1){
+                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE spender_name = 'Shuvo'");
+                    setData(cursor);
+                }
+                else if(position == 2){
+                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE spender_name = 'Jewel'");
+                    setData(cursor);
+                }
+                else if(position == 3){
+                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE spender_name = 'Debesh'");
+                    setData(cursor);
+                }
             }
 
             @Override
@@ -274,7 +301,7 @@ public class ExpensesFragment extends Fragment {
 
     private void setDataAccordingToDate(String toDate) {
 
-        String selectedItem = spinner.getSelectedItem().toString();
+        String selectedItem = expenseTypeSpinner.getSelectedItem().toString();
         Cursor cursor;
 
         switch (selectedItem){
@@ -325,10 +352,15 @@ public class ExpensesFragment extends Fragment {
 
         myDBHelper = new MyDBHelper(getActivity());
 
-        spinner = view.findViewById(R.id.selectExpenseTypeSpinnerId);
-        spinnerList = getResources().getStringArray(R.array.spinner_list);
-        arrayAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,spinnerList);
-        spinner.setAdapter(arrayAdapter);
+        expenseTypeSpinner = view.findViewById(R.id.selectExpenseTypeSpinnerId);
+        expenseTypeSpinnerList = getResources().getStringArray(R.array.expense_type_spinner_list);
+        expenseTypeSpinnerAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,expenseTypeSpinnerList);
+        expenseTypeSpinner.setAdapter(expenseTypeSpinnerAdapter);
+
+        spenderSpinner = view.findViewById(R.id.selectSpenderSpinnerId);
+        spenderSpinnerList = getResources().getStringArray(R.array.spender_spinner_list);
+        spenderSpinnerAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,spenderSpinnerList);
+        spenderSpinner.setAdapter(spenderSpinnerAdapter);
 
         fromDateTV = view.findViewById(R.id.fromDateTVId);
         toDateTV = view.findViewById(R.id.toDateTVId);

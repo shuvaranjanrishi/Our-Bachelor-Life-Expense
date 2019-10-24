@@ -21,16 +21,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Spinner
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/spinner_background"
+            <LinearLayout
                 android:layout_marginBottom="10dp"
-                android:id="@+id/selectExpenseTypeSpinnerId"
-                android:minWidth="100dp"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp">
-            </Spinner>
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Spinner
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/spinner_background"
+                    android:id="@+id/selectExpenseTypeSpinnerId"
+                    android:minWidth="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp">
+                </Spinner>
+                <Spinner
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/spinner_background"
+                    android:id="@+id/selectSpenderSpinnerId"
+                    android:minWidth="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp">
+                </Spinner>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_marginBottom="10dp"

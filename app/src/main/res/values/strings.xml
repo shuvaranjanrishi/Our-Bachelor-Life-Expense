@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Bechelor Life Expense</string>
 
-    <string-array name="spinner_list">
+    <string-array name="expense_type_spinner_list">
         <item>Select Expense Type</item>
         <item>Electricity Bill</item>
         <item>Transport Cost</item>
@@ -10,6 +10,13 @@
         <item>Lunch</item>
         <item>Dinner</item>
         <item>Others</item>
+    </string-array>
+
+    <string-array name="spender_spinner_list">
+        <item>Select Spender</item>
+        <item>Shuvo</item>
+        <item>Jewel</item>
+        <item>Debesh</item>
     </string-array>
 
 </resources>

@@ -117,7 +117,7 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHold
 
                             case R.id.deleteOptionId:
                                 //delete option click action
-                                Cursor cursor = ExpensesFragment.myDBHelper.getData("SELECT id FROM expense");
+                                Cursor cursor = ExpensesFragment.myDBHelper.getData("SELECT id FROM expense_tbl");
                                 List<Integer> id = new ArrayList<>();
 
                                 while (cursor.moveToNext()){

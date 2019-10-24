@@ -41,8 +41,9 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
 
-    private String expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName,shuvoCons,jewelCons,debeshCons;
+    private String expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName,shuvoCons,jewelCons,debeshCons,shuvoCost,jewelCost,debeshCost;
     private String idIntent;
+    private int noOfConsumer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +77,10 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
                         return;
                     } else {
                         //update data to database
-                        long resultId = myDBHelper.updateDataToDatabase(idIntent, expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName);
+                        long resultId = myDBHelper.updateDataToDatabase(idIntent, expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName, shuvoCost, jewelCost, debeshCost);
 
                         if (resultId > 0) {
+                            noOfConsumer = 0;
                             finish();
                             Toast.makeText(AddDailyExpenseActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                         } else {
@@ -91,9 +93,10 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
                         return;
                     } else {
                         //insert data to database
-                        long resultId = myDBHelper.insertDataToDatabase(expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName);
-
+                        long resultId = myDBHelper.insertDataToDatabase(expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName, shuvoCost, jewelCost, debeshCost);
+                        Toast.makeText(AddDailyExpenseActivity.this, ""+noOfConsumer+"\nsc "+shuvoCost+"\njc "+jewelCost+"\ndc "+debeshCost, Toast.LENGTH_SHORT).show();
                         if (resultId > 0) {
+                            noOfConsumer = 0;
                             setResult(RESULT_OK);
                             Toast.makeText(AddDailyExpenseActivity.this, "Row " + resultId + " inserted Successfully", Toast.LENGTH_SHORT).show();
                             finish();
@@ -223,23 +226,54 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         expenseType = spinner.getSelectedItem().toString();
         expenseAmount = amountET.getText().toString().trim();
 
-        if(shuvoCB.isChecked()){
+        if(shuvoRB.isChecked()){
             spenderName = shuvoRB.getText().toString();
-        }else if(shuvoCB.isChecked()){
+        }else if(jewelRB.isChecked()){
             spenderName = jewelRB.getText().toString();
-        }else if(shuvoCB.isChecked()){
+        }else if(debeshRB.isChecked()){
             spenderName = debeshRB.getText().toString();
         }
 
         if(shuvoCB.isChecked()){
             shuvoCons = shuvoCB.getText().toString();
+            noOfConsumer+=1;
         }
         if(jewelCB.isChecked()){
             jewelCons = jewelCB.getText().toString();
+            noOfConsumer+=1;
         }
         if(debeshCB.isChecked()){
             debeshCons = debeshCB.getText().toString();
+            noOfConsumer+=1;
         }
+
+        if(shuvoCB.isChecked()){
+            shuvoCost = expenseAmount;
+        }
+        if(jewelCB.isChecked()){
+            jewelCost = expenseAmount;
+        }
+        if(debeshCB.isChecked()){
+            debeshCost = expenseAmount;
+        }
+        if(shuvoCB.isChecked() && jewelCB.isChecked()){
+            shuvoCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+            jewelCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+        }
+        if(shuvoCB.isChecked() && debeshCB.isChecked()){
+            shuvoCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+            debeshCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+        }
+        if(jewelCB.isChecked() && debeshCB.isChecked()){
+            jewelCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+            debeshCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+        }
+        if(shuvoCB.isChecked() && jewelCB.isChecked() && debeshCB.isChecked()){
+            shuvoCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+            jewelCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+            debeshCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
+        }
+
 
         consumerName = ""+shuvoCons+"\n"+jewelCons+"\n"+debeshCons;
         expenseDate = dateET.getText().toString().trim();
@@ -253,7 +287,7 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         myDBHelper = new MyDBHelper(AddDailyExpenseActivity.this);
 
         spinner = findViewById(R.id.selectExpenseTypeSpinnerId);
-        spinnerList = getResources().getStringArray(R.array.spinner_list);
+        spinnerList = getResources().getStringArray(R.array.expense_type_spinner_list);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, spinnerList);
         spinner.setAdapter(arrayAdapter);
 
