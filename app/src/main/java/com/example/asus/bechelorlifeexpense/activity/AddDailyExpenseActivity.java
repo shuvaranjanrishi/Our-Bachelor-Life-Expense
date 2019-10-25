@@ -41,9 +41,9 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
 
-    private String expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName,shuvoCons,jewelCons,debeshCons,shuvoCost,jewelCost,debeshCost;
+    private String expenseType, expenseAmount,expenseDate, expenseTime, spenderName, consumerName,shuvoCons,jewelCons,debeshCons;
     private String idIntent;
-    private int noOfConsumer = 0;
+    private int noOfConsumer=0,shuvoCost=0,jewelCost=0,debeshCost=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,13 +74,13 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
                 if (idIntent != null) {
 
                     if (!validate()) {
+                        noOfConsumer = 0;
                         return;
                     } else {
                         //update data to database
-                        long resultId = myDBHelper.updateDataToDatabase(idIntent, expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName, shuvoCost, jewelCost, debeshCost);
+                        long resultId = myDBHelper.updateDataToDatabase(idIntent, expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName, String.valueOf(shuvoCost), String.valueOf(jewelCost),String.valueOf(debeshCost));
 
                         if (resultId > 0) {
-                            noOfConsumer = 0;
                             finish();
                             Toast.makeText(AddDailyExpenseActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                         } else {
@@ -90,10 +90,11 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
 
                 } else {
                     if (!validate()) {
+                        noOfConsumer = 0;
                         return;
                     } else {
                         //insert data to database
-                        long resultId = myDBHelper.insertDataToDatabase(expenseType, expenseAmount, expenseDate, expenseTime, spenderName, consumerName, shuvoCost, jewelCost, debeshCost);
+                        long resultId = myDBHelper.insertDataToDatabase(expenseType, String.valueOf(expenseAmount), expenseDate, expenseTime, spenderName, consumerName, String.valueOf(shuvoCost), String.valueOf(jewelCost),String.valueOf(debeshCost));
                         Toast.makeText(AddDailyExpenseActivity.this, ""+noOfConsumer+"\nsc "+shuvoCost+"\njc "+jewelCost+"\ndc "+debeshCost, Toast.LENGTH_SHORT).show();
                         if (resultId > 0) {
                             noOfConsumer = 0;
@@ -147,7 +148,10 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
             } else if (expenseAmount.equals(".")) {
                 amountET.setError("Please Enter Valid Amount");
                 valid = false;
-            } else if (expenseDate.isEmpty()) {
+            }else if (!shuvoCB.isChecked() && !jewelCB.isChecked() && !debeshCB.isChecked()){
+                Toast.makeText(this, "Please Check at least One Consumer !", Toast.LENGTH_SHORT).show();
+                valid = false;
+            }else if (expenseDate.isEmpty()) {
                 Toast.makeText(this, "Please Select Expense Date !", Toast.LENGTH_SHORT).show();
                 valid = false;
             }
@@ -234,46 +238,48 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
             spenderName = debeshRB.getText().toString();
         }
 
-        if(shuvoCB.isChecked()){
-            shuvoCons = shuvoCB.getText().toString();
-            noOfConsumer+=1;
-        }
-        if(jewelCB.isChecked()){
-            jewelCons = jewelCB.getText().toString();
-            noOfConsumer+=1;
-        }
-        if(debeshCB.isChecked()){
-            debeshCons = debeshCB.getText().toString();
-            noOfConsumer+=1;
-        }
+        if(!expenseAmount.isEmpty()){
 
-        if(shuvoCB.isChecked()){
-            shuvoCost = expenseAmount;
-        }
-        if(jewelCB.isChecked()){
-            jewelCost = expenseAmount;
-        }
-        if(debeshCB.isChecked()){
-            debeshCost = expenseAmount;
-        }
-        if(shuvoCB.isChecked() && jewelCB.isChecked()){
-            shuvoCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-            jewelCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-        }
-        if(shuvoCB.isChecked() && debeshCB.isChecked()){
-            shuvoCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-            debeshCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-        }
-        if(jewelCB.isChecked() && debeshCB.isChecked()){
-            jewelCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-            debeshCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-        }
-        if(shuvoCB.isChecked() && jewelCB.isChecked() && debeshCB.isChecked()){
-            shuvoCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-            jewelCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-            debeshCost = String.valueOf(Integer.parseInt(expenseAmount)/noOfConsumer);
-        }
+            if(shuvoCB.isChecked()){
+                shuvoCons = shuvoCB.getText().toString();
+                noOfConsumer+=1;
+            }
+            if(jewelCB.isChecked()){
+                jewelCons = jewelCB.getText().toString();
+                noOfConsumer+=1;
+            }
+            if(debeshCB.isChecked()){
+                debeshCons = debeshCB.getText().toString();
+                noOfConsumer+=1;
+            }
 
+            if(shuvoCB.isChecked()){
+                shuvoCost = Integer.valueOf(expenseAmount);
+            }
+            if(jewelCB.isChecked()){
+                jewelCost = Integer.valueOf(expenseAmount);;
+            }
+            if(debeshCB.isChecked()){
+                debeshCost = Integer.valueOf(expenseAmount);;
+            }
+            if(shuvoCB.isChecked() && jewelCB.isChecked()){
+                shuvoCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+                jewelCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+            }
+            if(shuvoCB.isChecked() && debeshCB.isChecked()){
+                shuvoCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+                debeshCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+            }
+            if(jewelCB.isChecked() && debeshCB.isChecked()){
+                jewelCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+                debeshCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+            }
+            if(shuvoCB.isChecked() && jewelCB.isChecked() && debeshCB.isChecked()){
+                shuvoCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+                jewelCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+                debeshCost = Integer.valueOf(expenseAmount)/noOfConsumer;
+            }
+        }
 
         consumerName = ""+shuvoCons+"\n"+jewelCons+"\n"+debeshCons;
         expenseDate = dateET.getText().toString().trim();

@@ -51,164 +51,337 @@ public class ConsumerFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Cursor cursor;
+
                 if(position == 0){
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo'");
-                    if (shuvoCursor.moveToFirst()) {
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
 
                 }else if(position == 1){
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Electricity Bill'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Electricity Bill'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Electricity Bill'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Electricity Bill'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Electricity Bill'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Electricity Bill'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Electricity Bill'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Electricity Bill'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Electricity Bill'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Electricity Bill'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Electricity Bill'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Electricity Bill'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Electricity Bill'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Electricity Bill'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Electricity Bill'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
                 }
                 else if(position == 2){
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Transport Cost'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Transport Cost'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Transport Cost'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Transport Cost'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Transport Cost'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Transport Cost'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Transport Cost'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Transport Cost'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Transport Cost'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Transport Cost'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Transport Cost'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Transport Cost'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Transport Cost'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Transport Cost'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Transport Cost'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
                 }
                 else if(position == 3){
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Medical Cost'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Medical Cost'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Medical Cost'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Medical Cost'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Medical Cost'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Medical Cost'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Medical Cost'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Medical Cost'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Medical Cost'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Medical Cost'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Medical Cost'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Medical Cost'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Medical Cost'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Medical Cost'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Medical Cost'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
                 }
                 else if(position == 4){
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Breakfast'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Breakfast'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Breakfast'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Breakfast'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Breakfast'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Breakfast'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Breakfast'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Breakfast'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Breakfast'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Breakfast'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Breakfast'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Breakfast'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Breakfast'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Breakfast'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Breakfast'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
                 }
                 else if(position == 5){
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Lunch'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Lunch'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Lunch'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Lunch'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Lunch'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Lunch'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Lunch'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Lunch'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Lunch'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Lunch'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Lunch'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Lunch'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Lunch'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Lunch'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Lunch'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
                 }
                 else if(position == 6){
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Dinner'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Dinner'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Dinner'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Dinner'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Dinner'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Dinner'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Dinner'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Dinner'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Dinner'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Dinner'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Dinner'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Dinner'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Dinner'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Dinner'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Dinner'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
                 }
                 else if(position == 7){
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Others'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        expenseSpenderShuvoTV.setText(String.valueOf(total));
-                    }
+                    //spender shuvo
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Others'");
+                    expenseSpenderShuvoTV.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Others'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        expenseSpenderJewelTV.setText(String.valueOf(total));
-                    }
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Others'");
+                    costShuvoConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
 
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Others'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        expenseSpenderDebeshTV.setText(String.valueOf(total));
-                    }
+                    cursor= myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Others'");
+                    costJewelConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Others'");
+                    costDebeshConsumerOfShuvo.setText(setDataToConsumersFragment(cursor));
+
+                    //spender jewel
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Others'");
+                    expenseSpenderJewelTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Others'");
+                    costShuvoConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Others'");
+                    costJewelConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Others'");
+                    costDebeshConsumerOfJewel.setText(setDataToConsumersFragment(cursor));
+
+                    //spender debesh
+                    cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Others'");
+                    expenseSpenderDebeshTV.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (shuvo_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Others'");
+                    costShuvoConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (jewel_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Others'");
+                    costJewelConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
+
+                    cursor = myDBHelper.getData("SELECT SUM (debesh_cost) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Others'");
+                    costDebeshConsumerOfDebesh.setText(setDataToConsumersFragment(cursor));
                 }
             }
 
@@ -217,6 +390,15 @@ public class ConsumerFragment extends Fragment {
 
             }
         });
+    }
+
+    private String setDataToConsumersFragment(Cursor cursor) {
+        String totalString = null;
+        if (cursor.moveToFirst()) {
+            int total = cursor.getInt(cursor.getColumnIndex("total"));
+            totalString = String.valueOf(total);
+        }
+        return totalString;
     }
 
     private void init(View view) {
@@ -242,6 +424,5 @@ public class ConsumerFragment extends Fragment {
         costShuvoConsumerOfDebesh = view.findViewById(R.id.shuvoConsCostOfDebeshTVId);
         costJewelConsumerOfDebesh = view.findViewById(R.id.jewelConsCostOfDebeshTVId);
         costDebeshConsumerOfDebesh = view.findViewById(R.id.debeshConsCostOfDebeshTVId);
-
     }
 }

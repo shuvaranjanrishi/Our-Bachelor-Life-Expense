@@ -19,13 +19,15 @@
         android:id="@+id/selectExpenseTypeSpinnerId"
         android:minWidth="100dp"
         android:layout_width="wrap_content"
-        android:layout_height="30dp">
+        android:layout_height="35dp">
     </Spinner>
 
     <android.support.v7.widget.CardView
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
         app:cardCornerRadius="10dp"
-        android:layout_width="250dp"
-        android:layout_height="60dp">
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
@@ -33,7 +35,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:gravity="center"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="2dp"
                 android:text="Expense Of Shuvo"
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
@@ -57,144 +59,147 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nShuvo"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/shuvoConsCostOfShuvoTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nJewel"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/jewelConsCostOfShuvoTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nDebesh"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/debeshConsCostOfShuvoTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.CardView
-            android:layout_marginRight="5dp"
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nShuvo"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/shuvoConsCostOfShuvoTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_marginRight="5dp"
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nJewel"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/jewelConsCostOfShuvoTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nDebesh"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/debeshConsCostOfShuvoTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
     <android.support.v7.widget.CardView
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
         app:cardCornerRadius="10dp"
-        android:layout_width="250dp"
-        android:layout_height="60dp">
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
@@ -202,11 +207,12 @@
             android:layout_height="match_parent">
             <TextView
                 android:gravity="center"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="2dp"
                 android:text="Expense Of Jewel"
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
@@ -226,144 +232,147 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nShuvo"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/shuvoConsCostOfJewelTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nJewel"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/jewelConsCostOfJewelTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nDebesh"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/debeshConsCostOfJewelTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.CardView
-            android:layout_marginRight="5dp"
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nShuvo"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/shuvoConsCostOfJewelTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_marginRight="5dp"
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nJewel"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/jewelConsCostOfJewelTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nDebesh"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/debeshConsCostOfJewelTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
     <android.support.v7.widget.CardView
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
         app:cardCornerRadius="10dp"
-        android:layout_width="250dp"
-        android:layout_height="60dp">
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
@@ -371,7 +380,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:gravity="center"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="2dp"
                 android:text="Expense Of Debesh"
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
@@ -395,137 +404,138 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nShuvo"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/shuvoConsCostOfDebeshTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nJewel"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/jewelConsCostOfDebeshTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginBottom="2dp"
+                            android:text="Cost of\nDebesh"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:text="BDT"
+                                android:layout_marginRight="5dp"
+                                android:textSize="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/debeshConsCostOfDebeshTVId"
+                                android:textColor="#000000"
+                                android:text="Expense"
+                                android:textSize="18dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.CardView
-            android:layout_marginRight="5dp"
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nShuvo"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/shuvoConsCostOfDebeshTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_marginRight="5dp"
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nJewel"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/jewelConsCostOfDebeshTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            app:cardCornerRadius="10dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Cost of\nDebesh"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#000000"
-                        android:text="BDT"
-                        android:layout_marginRight="5dp"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/debeshConsCostOfDebeshTVId"
-                        android:textColor="#000000"
-                        android:text="Expense"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
 
 </LinearLayout>
