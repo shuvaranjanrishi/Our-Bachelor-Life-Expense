@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.asus.bechelorlifeexpense.R;
+import com.example.asus.bechelorlifeexpense.fragment.ConsumerFragment;
 import com.example.asus.bechelorlifeexpense.fragment.DashBoardFragment;
 import com.example.asus.bechelorlifeexpense.fragment.ExpensesFragment;
 
@@ -35,19 +36,28 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     case R.id.dashBoardNavItemId:
 
-                        if(mark == 1){
+                        //if(mark == 1){
                             replaceFragment(new DashBoardFragment());
-                            mark--;
-                        }
+                           // mark--;
+                        //}
                         setTitle("Dash Board");
+                        return true;
+
+                    case R.id.consumerNavItemId:
+
+                        //if(mark == 0){
+                            replaceFragment(new ConsumerFragment());
+                         //   mark++;
+                        //}
+                        setTitle("Consumers");
                         return true;
 
                     case R.id.expensesNavItemId:
 
-                        if(mark == 0){
+                        //if(mark == 0){
                             replaceFragment(new ExpensesFragment());
-                            mark++;
-                        }
+                        //    mark++;
+                     //   }
                         setTitle("Expenses");
                         return true;
                 }

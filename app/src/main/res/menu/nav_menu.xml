@@ -6,7 +6,12 @@
         android:id="@+id/dashBoardNavItemId"
         android:icon="@drawable/ic_dashboard_black_24dp"></item>
     <item
+        android:title="Consumers"
+        android:id="@+id/consumerNavItemId"
+        android:icon="@drawable/tk_sign"></item>
+    <item
         android:title="Expenses"
         android:id="@+id/expensesNavItemId"
         android:icon="@drawable/tk_sign"></item>
+
 </menu>
