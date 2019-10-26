@@ -8,7 +8,7 @@
     <item
         android:title="Consumers"
         android:id="@+id/consumerNavItemId"
-        android:icon="@drawable/tk_sign"></item>
+        android:icon="@drawable/ic_people_black_24dp"></item>
     <item
         android:title="Expenses"
         android:id="@+id/expensesNavItemId"
