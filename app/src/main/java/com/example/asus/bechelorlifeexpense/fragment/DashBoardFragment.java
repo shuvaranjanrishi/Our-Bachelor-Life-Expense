@@ -84,179 +84,60 @@ public class DashBoardFragment extends Fragment {
                     }
 
                 }else if(position == 1){
-                    Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = 'Electricity Bill'");
-                    if (cursor.moveToFirst()) {
-                        int total = cursor.getInt(cursor.getColumnIndex("total"));
-                        totalExpenseTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Electricity Bill'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        totalExpenseOfShuvoTV.setText(String.valueOf(total));
-                    }
+                    totalExpenseTV.setText(getExpenseAccordingToType("Electricity Bill"));
+                    totalExpenseOfShuvoTV.setText(getExpenseAccordingToSpenderAndType("Shuvo","Electricity Bill"));
+                    totalExpenseOfJewelTV.setText(getExpenseAccordingToSpenderAndType("Jewel","Electricity Bill"));
+                    totalExpenseOfDebeshTV.setText(getExpenseAccordingToSpenderAndType("Debesh","Electricity Bill"));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Electricity Bill'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        totalExpenseOfJewelTV.setText(String.valueOf(total));
-                    }
-
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Electricity Bill'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        totalExpenseOfDebeshTV.setText(String.valueOf(total));
-                    }
                 }
                 else if(position == 2){
-                    Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = 'Transport Cost'");
-                    if (cursor.moveToFirst()) {
-                        int total = cursor.getInt(cursor.getColumnIndex("total"));
-                        totalExpenseTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Transport Cost'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        totalExpenseOfShuvoTV.setText(String.valueOf(total));
-                    }
+                    totalExpenseTV.setText(getExpenseAccordingToType("Transport Cost"));
+                    totalExpenseOfShuvoTV.setText(getExpenseAccordingToSpenderAndType("Shuvo","Transport Cost"));
+                    totalExpenseOfJewelTV.setText(getExpenseAccordingToSpenderAndType("Jewel","Transport Cost"));
+                    totalExpenseOfDebeshTV.setText(getExpenseAccordingToSpenderAndType("Debesh","Transport Cost"));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Transport Cost'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        totalExpenseOfJewelTV.setText(String.valueOf(total));
-                    }
-
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Transport Cost'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        totalExpenseOfDebeshTV.setText(String.valueOf(total));
-                    }
                 }
                 else if(position == 3){
-                    Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = 'Medical Cost'");
-                    if (cursor.moveToFirst()) {
-                        int total = cursor.getInt(cursor.getColumnIndex("total"));
-                        totalExpenseTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Medical Cost'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        totalExpenseOfShuvoTV.setText(String.valueOf(total));
-                    }
+                    totalExpenseTV.setText(getExpenseAccordingToType("Medical Cost"));
+                    totalExpenseOfShuvoTV.setText(getExpenseAccordingToSpenderAndType("Shuvo","Medical Cost"));
+                    totalExpenseOfJewelTV.setText(getExpenseAccordingToSpenderAndType("Jewel","Medical Cost"));
+                    totalExpenseOfDebeshTV.setText(getExpenseAccordingToSpenderAndType("Debesh","Medical Cost"));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Medical Cost'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        totalExpenseOfJewelTV.setText(String.valueOf(total));
-                    }
-
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Medical Cost'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        totalExpenseOfDebeshTV.setText(String.valueOf(total));
-                    }
                 }
                 else if(position == 4){
-                    Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = 'Breakfast'");
-                    if (cursor.moveToFirst()) {
-                        int total = cursor.getInt(cursor.getColumnIndex("total"));
-                        totalExpenseTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Breakfast'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        totalExpenseOfShuvoTV.setText(String.valueOf(total));
-                    }
+                    totalExpenseTV.setText(getExpenseAccordingToType("Breakfast"));
+                    totalExpenseOfShuvoTV.setText(getExpenseAccordingToSpenderAndType("Shuvo","Breakfast"));
+                    totalExpenseOfJewelTV.setText(getExpenseAccordingToSpenderAndType("Jewel","Breakfast"));
+                    totalExpenseOfDebeshTV.setText(getExpenseAccordingToSpenderAndType("Debesh","Breakfast"));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Breakfast'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        totalExpenseOfJewelTV.setText(String.valueOf(total));
-                    }
-
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Breakfast'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        totalExpenseOfDebeshTV.setText(String.valueOf(total));
-                    }
                 }
                 else if(position == 5){
-                    Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = 'Lunch'");
-                    if (cursor.moveToFirst()) {
-                        int total = cursor.getInt(cursor.getColumnIndex("total"));
-                        totalExpenseTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Lunch'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        totalExpenseOfShuvoTV.setText(String.valueOf(total));
-                    }
+                    totalExpenseTV.setText(getExpenseAccordingToType("Lunch"));
+                    totalExpenseOfShuvoTV.setText(getExpenseAccordingToSpenderAndType("Shuvo","Lunch"));
+                    totalExpenseOfJewelTV.setText(getExpenseAccordingToSpenderAndType("Jewel","Lunch"));
+                    totalExpenseOfDebeshTV.setText(getExpenseAccordingToSpenderAndType("Debesh","Lunch"));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Lunch'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        totalExpenseOfJewelTV.setText(String.valueOf(total));
-                    }
-
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Lunch'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        totalExpenseOfDebeshTV.setText(String.valueOf(total));
-                    }
                 }
                 else if(position == 6){
-                    Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = 'Dinner'");
-                    if (cursor.moveToFirst()) {
-                        int total = cursor.getInt(cursor.getColumnIndex("total"));
-                        totalExpenseTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Dinner'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        totalExpenseOfShuvoTV.setText(String.valueOf(total));
-                    }
+                    totalExpenseTV.setText(getExpenseAccordingToType("Dinner"));
+                    totalExpenseOfShuvoTV.setText(getExpenseAccordingToSpenderAndType("Shuvo","Dinner"));
+                    totalExpenseOfJewelTV.setText(getExpenseAccordingToSpenderAndType("Jewel","Dinner"));
+                    totalExpenseOfDebeshTV.setText(getExpenseAccordingToSpenderAndType("Debesh","Dinner"));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Dinner'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        totalExpenseOfJewelTV.setText(String.valueOf(total));
-                    }
-
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Dinner'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        totalExpenseOfDebeshTV.setText(String.valueOf(total));
-                    }
                 }
                 else if(position == 7){
-                    Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = 'Others'");
-                    if (cursor.moveToFirst()) {
-                        int total = cursor.getInt(cursor.getColumnIndex("total"));
-                        totalExpenseTV.setText(String.valueOf(total));
-                    }
 
-                    Cursor shuvoCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Shuvo' AND expense_type = 'Others'");
-                    if(shuvoCursor.moveToFirst()){
-                        int total = shuvoCursor.getInt(shuvoCursor.getColumnIndex("total"));
-                        totalExpenseOfShuvoTV.setText(String.valueOf(total));
-                    }
+                    totalExpenseTV.setText(getExpenseAccordingToType("Others"));
+                    totalExpenseOfShuvoTV.setText(getExpenseAccordingToSpenderAndType("Shuvo","Others"));
+                    totalExpenseOfJewelTV.setText(getExpenseAccordingToSpenderAndType("Jewel","Others"));
+                    totalExpenseOfDebeshTV.setText(getExpenseAccordingToSpenderAndType("Debesh","Others"));
 
-                    Cursor jewelCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Jewel' AND expense_type = 'Others'");
-                    if(jewelCursor.moveToFirst()){
-                        int total = jewelCursor.getInt(jewelCursor.getColumnIndex("total"));
-                        totalExpenseOfJewelTV.setText(String.valueOf(total));
-                    }
-
-                    Cursor debeshCursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = 'Debesh' AND expense_type = 'Others'");
-                    if(debeshCursor.moveToFirst()){
-                        int total = debeshCursor.getInt(debeshCursor.getColumnIndex("total"));
-                        totalExpenseOfDebeshTV.setText(String.valueOf(total));
-                    }
                 }
             }
 
@@ -267,6 +148,27 @@ public class DashBoardFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private String getExpenseAccordingToSpenderAndType(String spenderName, String expenseType) {
+
+        String totalString = null;
+        Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE spender_name = '"+spenderName+"' AND expense_type = '"+expenseType+"'");
+        if (cursor.moveToFirst()) {
+            int total = cursor.getInt(cursor.getColumnIndex("total"));
+            totalString = String.valueOf(total);
+        }
+        return totalString;
+    }
+
+    private String getExpenseAccordingToType(String expenseType) {
+        String totalString = null;
+        Cursor cursor = myDBHelper.getData("SELECT SUM (expense_amount) AS total FROM expense_tbl WHERE expense_type = '"+expenseType+"'");
+        if (cursor.moveToFirst()) {
+            int total = cursor.getInt(cursor.getColumnIndex("total"));
+            totalString = String.valueOf(total);
+        }
+        return totalString;
     }
 
     //set date to fromDate TextView by clicking from date icon
@@ -410,7 +312,6 @@ public class DashBoardFragment extends Fragment {
                 break;
         }
     }
-
 
     //initialize all components
     private void init(View view) {
