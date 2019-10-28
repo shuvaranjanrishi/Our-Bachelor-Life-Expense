@@ -28,7 +28,6 @@ import static com.example.asus.bechelorlifeexpense.fragment.ExpensesFragment.myD
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean selectedFragment = true;
     private BottomNavigationView bottomNavigationView;
     private LocalBackup localBackup;
 
@@ -38,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setLogo(R.mipmap.bachelor_life_expense_logo);
         setTitle("Dash Board");
 
         replaceFragment(new DashBoardFragment());//set default fragment in dash board
@@ -52,26 +53,19 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     case R.id.dashBoardNavItemId:
 
-                        if(selectedFragment == false){
-                            replaceFragment(new DashBoardFragment());
-                            selectedFragment = true;
-                        }
+                        replaceFragment(new DashBoardFragment());
                         setTitle("Dash Board");
                         return true;
 
                     case R.id.consumerNavItemId:
 
-                        if(selectedFragment){
-                            replaceFragment(new ConsumerFragment());
-                           selectedFragment = false;
-                        }
+                        replaceFragment(new ConsumerFragment());
                         setTitle("Consumers");
                         return true;
 
                     case R.id.expensesNavItemId:
 
-                            replaceFragment(new ExpensesFragment());
-
+                        replaceFragment(new ExpensesFragment());
                         setTitle("Expenses");
                         return true;
                 }

@@ -56,7 +56,6 @@ public class ExpensesFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,36 +76,123 @@ public class ExpensesFragment extends Fragment {
         expenseTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0){
-                    getData();
-                    populateDataToRecyclerView();
-                }else if(position == 1){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = 'Electricity Bill'");
-                    setData(cursor);
-                }
-                else if(position == 2){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = 'Transport Cost'");
-                    setData(cursor);
-                }
-                else if(position == 3){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = 'Medical Cost'");
-                    setData(cursor);
-                }
-                else if(position == 4){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = 'Breakfast'");
-                    setData(cursor);
-                }
-                else if(position == 5){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = 'Lunch'");
-                    setData(cursor);
-                }
-                else if(position == 6){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = 'Dinner'");
-                    setData(cursor);
-                }
-                else if(position == 7){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = 'Others'");
-                    setData(cursor);
+
+                String selectedSpender = spenderSpinner.getSelectedItem().toString();
+
+                switch (selectedSpender){
+                    case "Select Spender":
+                        switch (position){
+                            case 0:
+                                getData();
+                                populateDataToRecyclerView();
+                                break;
+                            case 1:
+                                setDataAccordingToExpenseType("Electricity Bill");
+                                break;
+                            case 2:
+                                setDataAccordingToExpenseType("Transport Cost");
+                                break;
+                            case 3:
+                                setDataAccordingToExpenseType("Medical Cost");
+                                break;
+                            case 4:
+                                setDataAccordingToExpenseType("Breakfast");
+                                break;
+                            case 5:
+                                setDataAccordingToExpenseType("Lunch");
+                                break;
+                            case 6:
+                                setDataAccordingToExpenseType("Dinner");
+                                break;
+                            case 7:
+                                setDataAccordingToExpenseType("Others");
+                                break;
+                        }
+                        break;
+                    case "Shuvo":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToSpender("Shuvo");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Electricity Bill","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Transport Cost","Shuvo");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Medical Cost","Shuvo");
+                                break;
+                            case 4:
+                                setDataAccordingToTypeAndSpender("Breakfast","Shuvo");
+                                break;
+                            case 5:
+                                setDataAccordingToTypeAndSpender("Lunch","Shuvo");
+                                break;
+                            case 6:
+                                setDataAccordingToTypeAndSpender("Dinner","Shuvo");
+                                break;
+                            case 7:
+                                setDataAccordingToTypeAndSpender("Others","Shuvo");
+                                break;
+                        }
+                        break;
+                    case "Jewel":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToSpender("Jewel");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Electricity Bill","Jewel");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Transport Cost","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Medical Cost","Jewel");
+                                break;
+                            case 4:
+                                setDataAccordingToTypeAndSpender("Breakfast","Jewel");
+                                break;
+                            case 5:
+                                setDataAccordingToTypeAndSpender("Lunch","Jewel");
+                                break;
+                            case 6:
+                                setDataAccordingToTypeAndSpender("Dinner","Jewel");
+                                break;
+                            case 7:
+                                setDataAccordingToTypeAndSpender("Others","Jewel");
+                                break;
+                        }
+                        break;
+                    case "Debesh":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToSpender("Debesh");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Electricity Bill","Debesh");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Transport Cost","Debesh");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Medical Cost","Debesh");
+                                break;
+                            case 4:
+                                setDataAccordingToTypeAndSpender("Breakfast","Debesh");
+                                break;
+                            case 5:
+                                setDataAccordingToTypeAndSpender("Lunch","Debesh");
+                                break;
+                            case 6:
+                                setDataAccordingToTypeAndSpender("Dinner","Debesh");
+                                break;
+                            case 7:
+                                setDataAccordingToTypeAndSpender("Others","Debesh");
+                                break;
+                        }
+                        break;
                 }
 
             }
@@ -121,20 +207,139 @@ public class ExpensesFragment extends Fragment {
         spenderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0){
-                    getData();
-                    populateDataToRecyclerView();
-                }else if(position == 1){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE spender_name = 'Shuvo'");
-                    setData(cursor);
-                }
-                else if(position == 2){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE spender_name = 'Jewel'");
-                    setData(cursor);
-                }
-                else if(position == 3){
-                    Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE spender_name = 'Debesh'");
-                    setData(cursor);
+
+                String selectedType = expenseTypeSpinner.getSelectedItem().toString();
+
+                switch (selectedType){
+                    case "Select Expense Type":
+                        switch (position){
+                            case 0:
+                                getData();
+                                populateDataToRecyclerView();
+                                break;
+                            case 1:
+                                setDataAccordingToSpender("Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToSpender("Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToSpender("Debesh");
+                                break;
+                        }
+                        break;
+                    case "Electricity Bill":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToExpenseType("Electricity Bill");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Electricity Bill","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Electricity Bill","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Electricity Bill","Debesh");
+                                break;
+                        }
+                        break;
+                    case "Transport Cost":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToExpenseType("Transport Cost");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Transport Cost","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Transport Cost","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Transport Cost","Debesh");
+                                break;
+                        }
+                        break;
+                    case "Medical Cost":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToExpenseType("Medical Cost");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Medical Cost","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Medical Cost","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Medical Cost","Debesh");
+                                break;
+                        }
+                        break;
+                    case "Breakfast":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToExpenseType("Breakfast");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Breakfast","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Breakfast","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Breakfast","Debesh");
+                                break;
+                        }
+                        break;
+                    case "Lunch":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToExpenseType("Lunch");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Lunch","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Lunch","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Lunch","Debesh");
+                                break;
+                        }
+                        break;
+                    case "Dinner":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToExpenseType("Dinner");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Dinner","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Dinner","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Dinner","Debesh");
+                                break;
+                        }
+                        break;
+                    case "Others":
+                        switch (position){
+                            case 0:
+                                setDataAccordingToExpenseType("Others");
+                                break;
+                            case 1:
+                                setDataAccordingToTypeAndSpender("Others","Shuvo");
+                                break;
+                            case 2:
+                                setDataAccordingToTypeAndSpender("Others","Jewel");
+                                break;
+                            case 3:
+                                setDataAccordingToTypeAndSpender("Others","Debesh");
+                                break;
+                        }
+                        break;
                 }
             }
 
@@ -172,6 +377,54 @@ public class ExpensesFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void setDataAccordingToTypeAndSpender(String expType, String spnName) {
+        expenseList.clear();
+        Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = '"+expType+"' AND spender_name = '"+spnName+"' ");
+        while (cursor.moveToNext()) {
+            String expenseId = cursor.getString(0);
+            String expenseType = cursor.getString(1);
+            String expenseAmount = cursor.getString(2);
+            String expenseDate = cursor.getString(3);
+            String expenseTime = cursor.getString(4);
+            String spenderName = cursor.getString(5);
+            String consumerName = cursor.getString(6);
+            expenseList.add(new Expense(expenseId,expenseType,expenseAmount,expenseDate,expenseTime,spenderName,consumerName));
+        }
+        populateDataToRecyclerView();
+    }
+
+    private void setDataAccordingToExpenseType(String expType) {
+        expenseList.clear();
+        Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE expense_type = '"+expType+"'");
+        while (cursor.moveToNext()) {
+            String expenseId = cursor.getString(0);
+            String expenseType = cursor.getString(1);
+            String expenseAmount = cursor.getString(2);
+            String expenseDate = cursor.getString(3);
+            String expenseTime = cursor.getString(4);
+            String spenderName = cursor.getString(5);
+            String consumerName = cursor.getString(6);
+            expenseList.add(new Expense(expenseId,expenseType,expenseAmount,expenseDate,expenseTime,spenderName,consumerName));
+        }
+        populateDataToRecyclerView();
+    }
+
+    private void setDataAccordingToSpender(String spnName) {
+        expenseList.clear();
+        Cursor cursor = myDBHelper.getData("SELECT * FROM expense_tbl WHERE spender_name = '"+spnName+"'");
+        while (cursor.moveToNext()) {
+            String expenseId = cursor.getString(0);
+            String expenseType = cursor.getString(1);
+            String expenseAmount = cursor.getString(2);
+            String expenseDate = cursor.getString(3);
+            String expenseTime = cursor.getString(4);
+            String spenderName = cursor.getString(5);
+            String consumerName = cursor.getString(6);
+            expenseList.add(new Expense(expenseId,expenseType,expenseAmount,expenseDate,expenseTime,spenderName,consumerName));
+        }
+        populateDataToRecyclerView();
     }
 
     private void setData(Cursor cursor) {

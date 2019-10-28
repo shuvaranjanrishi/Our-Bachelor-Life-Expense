@@ -37,7 +37,7 @@
             <TextView
                 android:gravity="center"
                 android:layout_marginBottom="2dp"
-                android:text="Expense Of Shuvo"
+                android:text="Expense Of Shuvo to them"
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -85,7 +85,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nShuvo"
+                            android:text="Consumer\nShuvo"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -126,7 +126,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nJewel"
+                            android:text="Consumer\nJewel"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -166,7 +166,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nDebesh"
+                            android:text="Consumer\nDebesh"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -212,7 +212,7 @@
             <TextView
                 android:gravity="center"
                 android:layout_marginBottom="2dp"
-                android:text="Expense Of Jewel"
+                android:text="Expense Of Jewel to them"
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -261,7 +261,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nShuvo"
+                            android:text="Consumer\nShuvo"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -302,7 +302,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nJewel"
+                            android:text="Consumer\nJewel"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -342,7 +342,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nDebesh"
+                            android:text="Consumer\nDebesh"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -387,7 +387,7 @@
             <TextView
                 android:gravity="center"
                 android:layout_marginBottom="2dp"
-                android:text="Expense Of Debesh"
+                android:text="Expense Of Debesh to them"
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -434,7 +434,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nShuvo"
+                            android:text="Consumer\nShuvo"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -475,7 +475,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nJewel"
+                            android:text="Consumer\nJewel"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -515,7 +515,7 @@
                         <TextView
                             android:gravity="center"
                             android:layout_marginBottom="2dp"
-                            android:text="Cost of\nDebesh"
+                            android:text="Consumer\nDebesh"
                             android:textSize="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />

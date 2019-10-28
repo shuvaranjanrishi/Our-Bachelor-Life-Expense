@@ -25,34 +25,43 @@ public class LocalBackup {
     //ask to the user a name for the backup and perform it. The backup will be saved to a custom folder.
     public void performBackup(final MyDBHelper myDBHelper, final String outFileName) {
 
-        Permissions.verifyStoragePermissions(activity);
+        String state = Environment.getExternalStorageState();
+        if(Environment.MEDIA_MOUNTED.equals(state)){
 
-        File folder = new File(Environment.getExternalStorageDirectory() + File.separator + activity.getResources().getString(R.string.app_name));
+            Permissions.verifyStoragePermissions(activity);
 
-        boolean success = true;
+            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + activity.getResources().getString(R.string.app_name));
 
-        if (!folder.exists())
-            success = folder.mkdirs();
+            boolean success = true;
 
-        if (success) {
+            if (!folder.exists())
+                success = folder.mkdirs();
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setTitle("Give your backup file name");
-            final EditText input = new EditText(activity);
-            input.setInputType(InputType.TYPE_CLASS_TEXT);
-            builder.setView(input);
+            if (success) {
 
-            builder.setPositiveButton("Save", (dialog, which) -> {
-                String m_Text = input.getText().toString();
-                String out = outFileName + m_Text + ".db";
-                myDBHelper.backup(out);
-            });
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setTitle("Give your backup file name");
+                final EditText input = new EditText(activity);
+                input.setHint("give name of backup file");
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
 
-            builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+                builder.setPositiveButton("Save", (dialog, which) -> {
+                    String fileName = input.getText().toString();
+                    String out = outFileName + fileName + ".db";
+                    myDBHelper.backup(out);
+                });
 
-            builder.show();
-        } else
-            Toast.makeText(activity, "Unable to create directory. Retry...", Toast.LENGTH_SHORT).show();
+                builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+                builder.show();
+            } else {
+                Toast.makeText(activity, "Unable to create directory. Retry...", Toast.LENGTH_SHORT).show();
+            }
+
+        }else {
+            Toast.makeText(activity, "SD Card is not available", Toast.LENGTH_SHORT).show();
+        }
     }
 
     //ask to the user what backup to restore
