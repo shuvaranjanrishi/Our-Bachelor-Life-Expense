@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.bachelor_life_expense_logo);
         setTitle("Dash Board");
 
@@ -81,9 +83,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frameLayoutId,fragment);
         fragmentTransaction.commit();
     }
-
-    //menu item action
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
